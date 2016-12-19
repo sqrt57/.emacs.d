@@ -1,5 +1,7 @@
 /auto-save-list/
 /server/
+/elpa/
 *~
 *.elc
 *.bak
+#*
