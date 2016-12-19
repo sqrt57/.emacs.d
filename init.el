@@ -9,9 +9,6 @@
 ;; Always load .el instead of .elc if it is newer
 (setq load-prefer-newer t)
 
-;; Disable automatic loading of packages
-(setq package-enable-at-startup nil)
-
 ;; Package archives.
 (setq package-archives
       '(("GNU ELPA"     . "http://elpa.gnu.org/packages/")
@@ -26,6 +23,7 @@
 	("MELPA"        . 0)))
 
 ;; Now we initialize packages
+(setq package-enable-at-startup nil)
 (package-initialize)
 
 ;; Bootstrap "use-package"
@@ -42,6 +40,11 @@
 ;; Standard Emacs customizations
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
+
+;; Evil mode
+(use-package evil
+  :demand t
+  :config (evil-mode t))
 
 ;; Emacs server
 (use-package server
