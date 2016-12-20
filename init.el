@@ -37,7 +37,8 @@
 
 ;; Configure backups and autosaves
 (setq auto-save-dir "~/.autosave/")
-(make-directory auto-save-dir)
+(unless (file-exists-p auto-save-dir)
+  (make-directory auto-save-dir))
 (setq backup-by-copying t
       backup-directory-alist '(("." . "~/.backup"))
       auto-save-file-name-transforms `((".*" ,auto-save-dir t)))
