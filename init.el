@@ -46,6 +46,9 @@
 ;; Tabs instead of spaces
 (setq-default indent-tabs-mode nil)
 
+;; Open Racket files in Scheme mode
+(add-to-list 'auto-mode-alist '("\\.rkt\\'" . scheme-mode))
+
 ;; Standard Emacs customizations
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
