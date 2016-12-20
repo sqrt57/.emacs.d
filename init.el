@@ -30,12 +30,20 @@
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
+(require 'use-package)
 
 ;; use-package always downloads packages
 (setq use-package-always-ensure t)
 
-;; Requires
-(require 'use-package)
+;; Configure backups and autosaves
+(setq auto-save-dir "~/.autosave/")
+(make-directory auto-save-dir)
+(setq backup-by-copying t
+      backup-directory-alist '(("." . "~/.backup"))
+      auto-save-file-name-transforms `((".*" ,auto-save-dir t)))
+
+;; Tabs instead of spaces
+(setq-default indent-tabs-mode nil)
 
 ;; Standard Emacs customizations
 (setq custom-file "~/.emacs.d/custom.el")
