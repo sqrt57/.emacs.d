@@ -49,6 +49,9 @@
 ;; Open Racket files in Scheme mode
 (add-to-list 'auto-mode-alist '("\\.rkt\\'" . scheme-mode))
 
+;; Show line numbers
+(global-linum-mode 1)
+
 ;; Standard Emacs customizations
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
