@@ -32,9 +32,6 @@
   (package-install 'use-package))
 (require 'use-package)
 
-;; use-package always downloads packages
-(setq use-package-always-ensure t)
-
 ;; Configure backups and autosaves
 (setq auto-save-dir "~/.autosave/")
 (unless (file-exists-p auto-save-dir)
@@ -58,11 +55,19 @@
 
 ;; Evil mode
 (use-package evil
+  :ensure t
   :demand t
   :config (evil-mode t))
 
+;; Flat assembler mode
+(use-package fasm-mode
+  :load-path "lisp/"
+  :mode "\\.asm\\'"
+  :mode "\\.inc\\'")
+
 ;; Emacs server
 (use-package server
+  :ensure t
   :if (not noninteractive)
   :defer t
   :init (server-mode))
